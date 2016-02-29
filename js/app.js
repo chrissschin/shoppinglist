@@ -1,14 +1,21 @@
 $(document).ready(function(){
-  //when button is clicked
+
   $('.addbutton').click(function(){
-    //store item in var
     var listitem = $("#item");
-    //append item to box2 as list item
+    if (!listitem.val()) {
+        alert('enter something please');
+        return false
+    } 
+    
+    
     $(".box2 ul").append("<li>" + listitem.val() + "</li>");
-    listitem.val('').focus();
+    listitem.val('');
+    
   });
-  //resets list
+  //reset
   $('.resetbutton').click(function(){
     $('.box2 ul li').remove();
   });
+  
+  $(".sortable").sortable();
 });
